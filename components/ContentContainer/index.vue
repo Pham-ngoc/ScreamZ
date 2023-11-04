@@ -1,9 +1,10 @@
 <template>
-    <div class='content-container ml-[400px] overflow-y-auto'>
+    <div class='content-container relative ml-[400px] overflow-y-auto'>
       <TopNavigation />
       <div class='content-list'>
         <ContentContainerPost
           name='Ada'
+
           timestamp='one week ago'
           text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
           amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
@@ -49,8 +50,8 @@
           adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
           ipsum dolor sit amet consectetur adipisicing elit."
         />
+        <ContentContainerBottomBar/>
       </div>
-      <BottomBar />
     </div>
 </template>
 <script setup>
