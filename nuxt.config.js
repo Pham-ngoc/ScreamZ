@@ -31,5 +31,19 @@ export default defineNuxtConfig({
         viewer: false,
         darkMode: 'class',
 
-    }
+    },
+    router: {
+        routes: [
+            {
+                name: 'home',
+                path: '/',
+                component: '~/pages/index.vue',
+            },
+            {
+                name: 'about',
+                path: '/about',
+                component: '~/pages/about.vue',
+            },
+        ],
+    },
 })
