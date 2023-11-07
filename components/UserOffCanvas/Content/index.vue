@@ -25,7 +25,6 @@
 
 <script setup>
 
-import {userContainer} from "~/composables/userContainer.js";
 </script>
 
 <style scoped>
