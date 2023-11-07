@@ -1,6 +1,6 @@
 <template>
     <div class='post'>
-      <div className='avatar-wrapper'>
+      <div class='avatar-wrapper'>
         <NuxtImg src="/img/ScreamZLogo.png" class='avatar' />
       </div>
 

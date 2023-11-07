@@ -1,5 +1,5 @@
 <template>
-  <h5 className='title-text'>{{  }}</h5>
+  <h5 class='title-text'>{{  }}</h5>
 </template>
 
 <script setup>

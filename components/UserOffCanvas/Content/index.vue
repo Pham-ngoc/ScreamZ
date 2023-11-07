@@ -15,7 +15,7 @@
           <span class="text-xs">Online</span>
         </div>
       </div>
-      <button class="ms-auto">
+      <button class="ms-auto" @click="userContainer().isUserChatFriend = true">
         <IconFriendChat class="ms-auto w-10 h-7"/>
       </button>
     </div>

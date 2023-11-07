@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-row " style="height: 100vh">
     <SideBar/>
-    <ChannelBar></ChannelBar>
+
     <slot/>
     <UserOffCanvas/>
   </div>
