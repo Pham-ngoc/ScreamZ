@@ -37,7 +37,7 @@
       </SideBarIcon>
     </NuxtLink>
     <hr className="sidebar-hr"/>
-    <NuxtLink to="/">
+    <NuxtLink @click="">
       <SideBarIcon>
         <template v-slot:icon>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus"
