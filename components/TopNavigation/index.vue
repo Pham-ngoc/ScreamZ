@@ -10,9 +10,6 @@
 
 <script setup>
 
-import UserUI from "~/components/TopNavigation/UserUI.vue";
-import {userContainer} from "~/composables/userContainer.js";
-
 const router= useRoute()
 const switchTheme=useDarkMode()
 
