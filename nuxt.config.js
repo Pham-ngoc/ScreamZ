@@ -24,7 +24,8 @@ export default defineNuxtConfig({
         autoImports: [
             'defineStore',
             'storeToRefs'
-        ]
+        ],
+        storesDirs: ['./composables/**']
     },
     tailwindcss: {
 
