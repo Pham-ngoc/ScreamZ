@@ -223,9 +223,9 @@
   integrity sha512-+gPfKv8UWeKKeJTUxe59+OobVcrYHETCsORl61EmSkmgymguYk/X5bp7GuUIXaFsc6y++v8ZxPsLSSuujqDphA==
 
 "@babel/parser@^7.23.0":
-  version "7.23.0"
-  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.23.0.tgz#da950e622420bf96ca0d0f2909cdddac3acd8719"
-  integrity sha512-vvPKKdMemU85V9WE/l5wZEmImpCtLqbnTvqDS2U1fJ96KrxoW7KrXhNsNCblQlg8Ck4b85yxdTyelsMUgFUXiw==
+  version "7.23.3"
+  resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.23.3.tgz#0ce0be31a4ca4f1884b5786057cadcb6c3be58f9"
+  integrity sha512-uVsWNvlVsIninV2prNz/3lHCb+5CJ+e+IUBfbjToAHODtfGYLfCFuY4AU7TskI+dAKk+njsPiBjq1gKTvZOBaw==
 
 "@babel/plugin-proposal-decorators@^7.22.15":
   version "7.22.15"
@@ -1773,9 +1773,9 @@
     uncrypto "^0.1.3"
 
 "@orbisclub/orbis-sdk@^0.4.88":
-  version "0.4.88"
-  resolved "https://registry.yarnpkg.com/@orbisclub/orbis-sdk/-/orbis-sdk-0.4.88.tgz#4ed60f0a763ab099a4118215a21c875a6df56ada"
-  integrity sha512-3wm0EEGNu3KEHbmaLIVwiHnmEX4pXtJ+/WFJSTYKj+APofZ4lt8xft244rjbeub9lYocfp/4Z0umeab72WLvJw==
+  version "0.4.89"
+  resolved "https://registry.npmjs.org/@orbisclub/orbis-sdk/-/orbis-sdk-0.4.89.tgz"
+  integrity sha512-r4YmLY5Uib4kc5VH7QLXe/Cj3aVqnsaT6j3nWzYnCccmcLqVY/BLYW0snijkl5P7h3ZZD3LGcp1IfLtujkpIPg==
   dependencies:
     "@ceramicnetwork/http-client" "^2.13.0-hotfix.0"
     "@ceramicnetwork/stream-tile" "^2.12.0-hotfix.0"
@@ -4819,10 +4819,10 @@ flatted@^3.2.9:
   resolved "https://registry.npmjs.org/flatted/-/flatted-3.2.9.tgz"
   integrity sha512-36yxDn5H7OFZQla0/jFJmbIKTdZAQHngCedGxiMmpNfEZM0sdEeT+WczLQrjK6D7o2aiyLYDnkw0R3JK0Qv1RQ==
 
-flowbite@^1.8.1:
-  version "1.8.1"
-  resolved "https://registry.npmjs.org/flowbite/-/flowbite-1.8.1.tgz"
-  integrity sha512-lXTcO8a6dRTPFpINyOLcATCN/pK1Of/jY4PryklPllAiqH64tSDUsOdQpar3TO59ZXWwugm2e92oaqwH6X90Xg==
+flowbite@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/flowbite/-/flowbite-2.0.0.tgz"
+  integrity sha512-gP/iC/WuznQ5XBzikhaSs4RDs49zrvoAdHbWMHSY3l7nVJX0xJz+dELIlLjh+czLdEVTMLxUjuARYYwCb5q34A==
   dependencies:
     "@popperjs/core" "^2.9.3"
     mini-svg-data-uri "^1.4.3"
@@ -9153,7 +9153,6 @@ widest-line@^4.0.1:
     string-width "^5.0.1"
 
 "wrap-ansi-cjs@npm:wrap-ansi@^7.0.0", wrap-ansi@^7.0.0:
-  name wrap-ansi-cjs
   version "7.0.0"
   resolved "https://registry.npmjs.org/wrap-ansi/-/wrap-ansi-7.0.0.tgz"
   integrity sha512-YVGIj2kamLSTxw6NsZjoBxfSwsn0ycdesmc4p+Q21c5zPuZ1pl+NfxVdxPtdHvmNVOQ6XSYG4AUtyt/Fi7D16Q==
