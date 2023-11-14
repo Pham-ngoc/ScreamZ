@@ -18,7 +18,7 @@
     "@nuxt/image": "^1.0.0-rc.3",
     "@orbisclub/orbis-sdk": "^0.4.88",
     "@pinia/nuxt": "^0.4.11",
-    "flowbite": "^1.8.1",
+    "flowbite": "^2.0.0",
     "moment": "^2.29.4",
     "pinia": "^2.1.6"
   },

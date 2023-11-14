@@ -1,13 +1,15 @@
 <template>
   <NuxtLayout>
-    <NuxtPage />
+    <NuxtPage/>
   </NuxtLayout>
+
 </template>
 <script setup>
 import {initFlowbite} from "flowbite";
+onMounted(async () => {
+  initFlowbite()
 
-onMounted(() => {
-    initFlowbite();
+
 })
 
 </script>
