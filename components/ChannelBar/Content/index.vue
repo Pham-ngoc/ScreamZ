@@ -5,9 +5,7 @@ const random = ['variants', 'plugins'];
 </script>
 
 <template v-slot:chanelBarContent>
-  <ChannelBarDropdown header='Topics' :selections="topics" />
-  <ChannelBarDropdown header='Questions' :selections="questions" />
-  <ChannelBarDropdown header='Random' :selections="random" />
+
 </template>
 
 <style scoped>

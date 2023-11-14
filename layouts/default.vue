@@ -5,7 +5,6 @@
     <slot/>
     <UserOffCanvas/>
   </div>
-  <Modal/>
 
 </template>
 <script setup>
