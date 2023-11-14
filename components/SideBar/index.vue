@@ -35,7 +35,7 @@
         </template>
       </SideBarIcon>
     </NuxtLink>
-    <NuxtLink data-modal-target="createDropdown-modal" data-modal-toggle="createDropdown-modal">
+    <button >
       <SideBarIcon >
         <template v-slot:icon>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
@@ -44,7 +44,7 @@
           </svg>
         </template>
       </SideBarIcon>
-    </NuxtLink>
+    </button>
   </div>
 </template>
 <script setup lang="ts">
