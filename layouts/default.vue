@@ -6,7 +6,8 @@
     <UserOffCanvas/>
   </div>
   <ModalWalletConnect/>
-
+  <ModalCreateConversation/>
+<!--  <ModalAddMember/>-->
 </template>
 <script setup>
 const darkMode = useDarkMode()
