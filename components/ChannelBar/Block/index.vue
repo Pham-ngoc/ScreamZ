@@ -1,14 +1,49 @@
 <template>
-    <div class='channel-block'>
-      <form>
-        <label for="default-search" class="mb-2 text-sm font-mono text-gray-900 sr-only dark:text-white">Search</label>
-        <div class="">
+  <div class='channel-block'>
+    <h1 class="font-bold my-auto mr-auto">ScreamZ</h1>
+    <a href="#" id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="px-5 py-2.5">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+           class="bi bi-chevron-compact-down " viewBox="0 0 16 16">
+        <path fill-rule="evenodd"
+              d="M1.553 6.776a.5.5 0 0 1 .67-.223L8 9.44l5.776-2.888a.5.5 0 1 1 .448.894l-6 3a.5.5 0 0 1-.448 0l-6-3a.5.5 0 0 1-.223-.67z"/>
+      </svg>
+    </a>
 
-          <button type="button" data-modal-target="staticModal" data-modal-toggle="staticModal" class="block w-full p-2 pr-8 text-[12px]] text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
-            Find or start a conversation
+    <!-- Dropdown menu -->
+    <div id="dropdown"
+         style=""
+         class=" hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+      <ul class="absolute -left-20 py-2 text-sm text-gray-700 dark:text-gray-200"
+          aria-labelledby="dropdownDefaultButton">
+        <li>
+          <button type="button"
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            Invite people
           </button>
-
-        </div>
-      </form>
+        </li>
+        <li>
+          <button type="button"
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            Purple to Pink
+          </button>
+        </li>
+        <li>
+          <button type="button"
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            Create Conversion
+          </button>
+        </li>
+        <hr>
+        <li>
+          <button type="button"
+                  class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+            Delete chanel
+          </button>
+        </li>
+      </ul>
     </div>
+  </div>
+  <hr class="w-100 h-1 bg-gray-100 border-0 rounded dark:bg-gray-700">
 </template>
+<script setup lang="ts">
+</script>

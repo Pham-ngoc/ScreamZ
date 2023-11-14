@@ -6,7 +6,9 @@
     <UserOffCanvas/>
   </div>
   <ModalWalletConnect/>
-
+  <ModalChanel/>
+  <ModalCreateChanelForm/>
+  <ModalJoinChanel/>
 </template>
 <script setup>
 const darkMode = useDarkMode()
