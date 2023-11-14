@@ -2,6 +2,7 @@
     <div class='post'>
       <div class='avatar-wrapper'>
         <NuxtImg src="/img/ScreamZLogo.png" class='avatar' />
+
       </div>
 
       <div class='post-content '>
