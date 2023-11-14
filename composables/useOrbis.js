@@ -9,6 +9,7 @@ export const useOrbis = defineStore('orbis',  () => {
     const isLogin = ref(false);
     const did = ref("");
     const contexts = ref([]);
+    const channels= ref([]);
     const orbis = reactive(new Orbis({
         PINATA_GATEWAY: "beige-changing-squirrel-773.mypinata.cloud",
         PINATA_API_KEY: "160f16c829a96b1ca299",
@@ -72,7 +73,8 @@ export const useOrbis = defineStore('orbis',  () => {
         createContext,
         updateContext,
         contexts,
-        orbis
+        orbis,
+        channels
 
     }
 })
