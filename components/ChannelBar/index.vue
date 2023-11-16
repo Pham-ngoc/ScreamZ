@@ -12,7 +12,8 @@
   <ModalCreateDropdown></ModalCreateDropdown>
 </template>
 <script setup>
-console.log(useChanel().conversations)
+import { useChanel } from '~/composables/useChanel';
+
 const chanelId= defineProps(['chanelId'])
 console.log(chanelId)
 const topics = ['tailwind-css', 'react'];

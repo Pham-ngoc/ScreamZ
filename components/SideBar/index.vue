@@ -36,5 +36,7 @@
   </div>
 </template>
 <script setup>
+import { useOrbis } from '~/composables/useOrbis';
+
 const {$state}=useOrbis()
 </script>

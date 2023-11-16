@@ -9,6 +9,9 @@
 </template>
 
 <script setup>
+import { useDarkMode } from '~/composables/useDarkMode';
+import { userContainer } from '~/composables/userContainer';
+
 
 const router= useRoute()
 const switchTheme=useDarkMode()

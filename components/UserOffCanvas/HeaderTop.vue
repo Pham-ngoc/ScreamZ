@@ -29,13 +29,15 @@
 </template>
 
 <script setup>
+import { useOrbis } from '~/composables/useOrbis';
+
 const  {$state,getIsLogin}=useOrbis()
 onMounted(async () => {
 })
 const toggleModal=useState("setting-modal",()=>false)
 const toogleConnectWalltetModal=useState("crypto-modal",()=>false)
 const hanldeToggleModal=()=>{
-  toggleModal.value=!toggleModal.value
+  toggleModal.value =! toggleModal.value
   console.log(toggleModal.value)
 }
 </script>
