@@ -5,7 +5,6 @@
     <slot/>
     <UserOffCanvas/>
   </div>
-  <ModalWalletConnect/>
 
 </template>
 <script setup>

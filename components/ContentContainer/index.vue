@@ -1,5 +1,5 @@
-<template>
-    <div class='content-container relative ml-[334px] overflow-y-auto'>
+<template >
+    <div class='content-container relative overflow-y-auto'>
       <TopNavigation />
       <div class='content-list'>
         <ContentContainerPost
