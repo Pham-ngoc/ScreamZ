@@ -1,6 +1,7 @@
 <template>
   <div class='channel-block'>
-    <h1 class="font-bold my-auto mr-auto">ScreamZ</h1>
+
+    <h1 class="font-bold my-auto mr-auto px-2">ScreamZ</h1>
     <a href="#" id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="px-5 py-2.5">
       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
            class="bi bi-chevron-compact-down " viewBox="0 0 16 16">

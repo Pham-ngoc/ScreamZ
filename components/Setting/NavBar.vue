@@ -8,9 +8,16 @@
     >
       {{ st.name }}
     </button>
+    <button class="setting-item mt-auto" style=""
+            type="button"
+            @click="logOut()"
+    >
+      Log out
+    </button>
   </div>
 </template>
 <script setup>
+const {logOut}=useOrbis()
 defineProps({
   currentTab: {
     type: Object,

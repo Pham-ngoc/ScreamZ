@@ -1,5 +1,5 @@
 <template >
-    <div class='w-64  h-full fixed top-0 left-[80px] bg-white dark:bg-[#1f2937] text-gray-500 dark:text-white' >
+    <div class='w-[390px] h-full bg-white dark:bg-[#1f2937] text-gray-500 dark:text-white' >
       <ChannelBarBlock />
       <div class='channel-container'>
         <ChannelBarDropdown v-for="chanel in useChanel().getConversations" :header="chanel.name"/>

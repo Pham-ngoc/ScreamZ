@@ -1,5 +1,5 @@
 <template>
-  <div id="createChanelModal" tabindex="-1"
+  <div id="createChanelModal" tabindex="0"
        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
       <!-- Modal content -->
@@ -26,7 +26,7 @@
         </div>
         <!-- Modal body -->
         <div class="p-6 space-y-6">
-          <button data-modal-hide="createChanelModal" type="button" data-modal-toggle="startCreateChanelModel" class="flex justify-between w-full p-3 rounded border border-gray-500 dark:border-white">
+          <button  type="button" data-modal-hide="createChanelModal" data-modal-target="startCreateChanelModel" data-modal-toggle="startCreateChanelModel" class="flex justify-between w-full p-3 rounded border border-gray-500 dark:border-white">
             <span>
               Create your own template
             </span>
@@ -36,7 +36,7 @@
         <!-- Modal footer -->
         <div class="flex flex-col items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
           <h1>Have you joined the channel already?</h1>
-          <button data-modal-hide="createChanelModal" type="button" data-modal-toggle="joinChanelModal"
+          <button  type="button"  data-modal-hide="createChanelModal" data-modal-target="joinChanelModal" data-modal-toggle="joinChanelModal"
                   class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Join the channel
           </button>
@@ -44,6 +44,7 @@
       </div>
     </div>
   </div>
+
 </template>
 
 <script>
