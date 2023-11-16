@@ -15,6 +15,7 @@
     "nuxt": "^3.7.3"
   },
   "dependencies": {
+    "@joeattardi/emoji-button": "^4.6.4",
     "@nuxt/image": "^1.0.0-rc.3",
     "@orbisclub/orbis-sdk": "^0.4.88",
     "@pinia/nuxt": "^0.4.11",
