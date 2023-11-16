@@ -7,7 +7,9 @@
   </div>
   <ModalWalletConnect/>
   <ModalCreateConversation/>
-<!--  <ModalAddMember/>-->
+  <ModalAddMember/>
+  <ModalEditChannel/>
+  <ModalDeleteChannel/>
 </template>
 <script setup>
 const darkMode = useDarkMode()
