@@ -34,8 +34,6 @@
         {{ toggleEdit[1].isEdit ? 'Save' : 'Edit' }}
       </button>
     </div>
-
-
   </form>
 </template>
 
@@ -58,7 +56,6 @@ const toggleEdit = ref([
     field: 'email',
     isEdit: false,
   },
-
 ])
 </script>
 

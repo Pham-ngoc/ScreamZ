@@ -5,12 +5,7 @@
     <slot/>
     <UserOffCanvas/>
   </div>
-  <ModalWalletConnect/>
-  <ModalCreateConversation/>
-  <ModalAddMember/>
-  <ModalEditChannel/>
-  <ModalDeleteChannel/>
-  <ModalInviteConversation/>
+
 </template>
 <script setup>
 const darkMode = useDarkMode()

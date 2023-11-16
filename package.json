@@ -12,6 +12,7 @@
   "devDependencies": {
     "@nuxt/devtools": "latest",
     "@nuxtjs/tailwindcss": "^6.8.0",
+    "naive-ui": "^2.35.0",
     "nuxt": "^3.7.3"
   },
   "dependencies": {

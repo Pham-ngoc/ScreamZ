@@ -8,9 +8,16 @@
     >
       {{ st.name }}
     </button>
+    <button class="setting-item mt-auto" style=""
+            type="button"
+            @click="logOut()"
+    >
+      Log out
+    </button>
   </div>
 </template>
 <script setup>
+const {logOut}=useOrbis()
 defineProps({
   currentTab: {
     type: Object,
@@ -36,7 +43,6 @@ defineProps({
 }
 .active {
   background: linear-gradient(90deg, #8d28ca, #e85f62);
-
 }
 .log-out:hover {
   border: none;
@@ -48,6 +54,4 @@ defineProps({
   width: 250px;
   height: 83px;
 }
-
-
 </style>
