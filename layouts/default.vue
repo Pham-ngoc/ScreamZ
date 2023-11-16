@@ -7,6 +7,7 @@
   </div>
   <ModalWalletConnect/>
   <ModalCreateConversation/>
+  <ModalInviteConversation/>
 <!--  <ModalAddMember/>-->
 </template>
 <script setup>
