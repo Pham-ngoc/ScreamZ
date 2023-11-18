@@ -8,6 +8,8 @@
 
 </template>
 <script setup>
+import { useDarkMode } from '~/composables/useDarkMode';
+
 const darkMode = useDarkMode()
 darkMode.setThemeClass()
 
