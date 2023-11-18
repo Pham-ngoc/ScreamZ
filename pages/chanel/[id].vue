@@ -3,7 +3,9 @@
   <content-container></content-container>
 </template>
 <script setup>
-
+definePageMeta({
+  layout: 'default',
+})
 
 </script>
 

@@ -12,9 +12,10 @@
   <ModalCreateDropdown></ModalCreateDropdown>
 </template>
 <script setup>
-console.log(useChanel().conversations)
+
 const chanelId= defineProps(['chanelId'])
 console.log(chanelId)
+
 const topics = ['tailwind-css', 'react'];
 const questions = ['jit-compilation', 'purge-files', 'dark-mode'];
 const random = ['variants', 'plugins'];

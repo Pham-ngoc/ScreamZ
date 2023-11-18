@@ -1,14 +1,14 @@
 <template>
   <div class="h-full w-48 flex flex-col
                   bg-white dark:bg-gray-900 shadow-lg">
-    <NuxtLink >
-      <SideBarIcon >
+    <NuxtLink>
+      <SideBarIcon>
         <template v-slot:icon>
           <NuxtImg src="/img/ScreamZLogo.png" width="32" height="32" />
         </template>
       </SideBarIcon>
     </NuxtLink>
-    <button v-for="ct in $state.contexts" :key="ct.stream_id" @click="useOrbis().deleteContext(ct.stream_id)">
+    <NuxtLink :to="'/chanel/'+ct.stream_id" v-for="ct in $state.contexts" :key="ct.stream_id" >
       <SideBarIcon :text="ct.content.displayName">
         <template v-slot:icon>
           <svg v-if="!ct.content.pfp" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-1-circle" viewBox="0 0 16 16">
@@ -17,7 +17,7 @@
           <NuxtImg v-else  :src="ct.content.pfp" class="w-full h-full hover:rounded-xl rounded-3xl"/>
         </template>
       </SideBarIcon>
-    </button>
+    </NuxtLink>
 
     <div class="mt-auto flex-col flex ">
       <hr class="sidebar-hr"/>

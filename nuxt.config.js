@@ -2,7 +2,7 @@
 
 // @ts-ignore
 export default defineNuxtConfig({
-    devtools: { enabled: false },
+    devtools: {enabled: false},
     ssr: false,
     css: ['~/assets/css/main.css'],
 
@@ -10,9 +10,7 @@ export default defineNuxtConfig({
         define: {
             global: 'globalThis',
         },
-        $client: {
-
-        }
+        $client: {}
     },
     modules: [
         '@nuxtjs/tailwindcss',
@@ -20,7 +18,7 @@ export default defineNuxtConfig({
         '@nuxt/image',
 
     ],
-    pinia:{
+    pinia: {
         autoImports: [
             'defineStore',
             'storeToRefs'

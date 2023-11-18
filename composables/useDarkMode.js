@@ -1,5 +1,8 @@
 
 import { defineStore } from 'pinia';
+import { EmojiButton } from '@joeattardi/emoji-button';
+
+
 export const useDarkMode = defineStore('darkMode', {
 
     state: () => ({ 

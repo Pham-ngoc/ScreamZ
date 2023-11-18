@@ -13,7 +13,6 @@ useState("createChanelModal",()=>false)
 <template>
   <ChannelBar :chanelId="useRoute().params.id"></ChannelBar>
   <ContentContainer/>
-
   <ModalChanel />
   <ModalCreateChanelForm/>
   <ModalJoinChanel/>

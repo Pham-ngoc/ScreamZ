@@ -36,7 +36,7 @@
             <label for="dropzone-file"
                    class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
               <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <template  v-if="context.pfp ===''">
+                <template v-if="context.pfp ===''">
                   <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -87,19 +87,19 @@
 </template>
 
 <script setup>
-const context=reactive({
-  name:"",
-  displayName:"",
-  pfp:"",
+const context = reactive({
+  name: "",
+  displayName: "",
+  pfp: "",
 })
-const orbis=useOrbis();
-const createContext=async ()=>{
+const orbis = useOrbis();
+const createContext = async () => {
   await orbis.createContext(context)
 }
-const uploadMedia=async (file)=>{
+const uploadMedia = async (file) => {
 
-  await orbis.uploadMedia(file).then((res)=>{
-    context.pfp=res?.result?.url
+  await orbis.uploadMedia(file).then((res) => {
+    context.pfp = res?.result?.url
     console.log(res?.result?.url)
   })
 }
