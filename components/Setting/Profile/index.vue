@@ -7,38 +7,115 @@
       <div class="h-1/2 bg-transparent">
 
       </div>
-      <div class="absolute top-1/2 left-[6%] transform w-[90px] h-[90px] -translate-y-1/2 rounded-full p-2 bg-black flex items-center gap-8">
-        <nuxt-img
-            class="rounded-full  w-full h-full  setting_profile_img"
-            src="/img/ScreamZLogo.png"
 
-        >
-        </nuxt-img>
-        <div class="rounded-full w-full h-full setting_profile_img_edit flex">
-          <svg xmlns="http://www.w3.org/2000/svg" class="m-auto w-5 h-5" viewBox="0 0 24 24"><path fill="currentColor" d="M7.882 2h8.236l1.5 3H23v16H1V5h5.382l1.5-3Zm1.236 2l-1.5 3H3v12h18V7h-4.618l-1.5-3H9.118ZM12 9.5a3 3 0 1 0 0 6a3 3 0 0 0 0-6Zm-5 3a5 5 0 1 1 10 0a5 5 0 0 1-10 0Z"/></svg>
+      <div class="absolute top-1/2 left-[6%] ] h-[90px] -translate-y-1/2 rounded-full p-2 bg-transparent flex items-center gap-8">
+        <form id="avatar-form"  class="w-full h-full" style="display: none">
+          <input ref="fileInput" type="file" @change="handleFileSelect" hidden>
+        </form>
+<!--        <img  class="h-20 w-20 rounded-full cursor-pointer" :src="profile.photo" alt="userAvatar">-->
+        <div>
+          <nuxt-img
+              v-if="!toggleSave&&profile.pfp"
+              @click="openFileInput"
+              class="h-20 w-20 rounded-full cursor-pointer"
+              alt="userAvatar"
+              :src="profile.pfp"
+          >
+          </nuxt-img>
+          <nuxt-img
+              v-if="!toggleSave&&!profile.pfp"
+              @click="openFileInput"
+              class="h-20 w-20 rounded-full cursor-pointer"
+              alt="userAvatar"
+              src="/img/ScreamZLogo.png"
+          >
+          </nuxt-img>
+          <nuxt-img
+              v-if="toggleSave&&imgPreview"
+              @click="openFileInput"
+              class="h-20 w-20 rounded-full cursor-pointer"
+              alt="userAvatar"
+              :src="imgPreview"
+          >
+          </nuxt-img>
         </div>
-        <span class="text-[1.5rem]">
-          Screamz
-        </span>
+        <div @click="openFileInput" class="cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 256 256"><path fill="currentColor" d="M208 58h-28.79L165 36.67a6 6 0 0 0-5-2.67H96a6 6 0 0 0-5 2.67L76.78 58H48a22 22 0 0 0-22 22v112a22 22 0 0 0 22 22h160a22 22 0 0 0 22-22V80a22 22 0 0 0-22-22Zm10 134a10 10 0 0 1-10 10H48a10 10 0 0 1-10-10V80a10 10 0 0 1 10-10h32a6 6 0 0 0 5-2.67L99.21 46h57.57L171 67.33a6 6 0 0 0 5 2.67h32a10 10 0 0 1 10 10ZM128 90a42 42 0 1 0 42 42a42 42 0 0 0-42-42Zm0 72a30 30 0 1 1 30-30a30 30 0 0 1-30 30Z"/></svg>
+          <span>.jpg .png</span>
+        </div>
+        <button v-if="toggleSave&&!loading" @click="updateProfileMethod()" type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">Save</button>
+        <button v-if="loading"  type="button" class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l focus:ring-4 focus:outline-none focus:ring-purple-200 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">
+          <n-spin size="small" />
+        </button>
+
       </div>
     </div>
-    <SettingProfileForm/>
+    <SettingProfileForm :profile="profile" @update-profile="updateProfileMethod"/>
   </div>
 </template>
 
-<script setup>
-const img_edit = ref('block')
+<script >
+export default {
+  methods: {
+    async openFileInput(){
+      this.$refs.fileInput.click();
+    },
+    async handleFileSelect(event) {
+      const selectedFile = event.target.files[0];
+      if (selectedFile) {
+
+        this.toggleSave=true
+        this.loading=true
+        await this.uploadMedia(selectedFile).then((res) => {
+          console.log(res)
+          this.imgPreview = res?.result?.url
+        })
+        this.loading=false
+      }
+    },
+    async updateProfileMethod(){
+
+      this.loading=true
+      if(this.imgPreview){
+        this.profile.pfp=this.imgPreview
+      }
+      console.log(this.profile)
+      console.log(this.imgPreview)
+      await this.updateProfile(this.profile).then((res)=>{
+        this.toggleSave=false
+        this.loading=false
+        this.imgPreview=''
+        this.profile=this.getProfile?.details?.profile
+        window.location.reload()
+      })
+      this.toggleSave=false
+      this.loading=false
+      this.imgPreview=''
+    }
+  },
+  setup() {
+    const {uploadMedia,updateProfile,getProfile}=useOrbisStore()
+    console.log(getProfile)
+    const profile = reactive({
+      ...getProfile?.details?.profile
+    })
+    const loading=ref(false)
+    const imgPreview = ref('')
+    const toggleSave = ref(false)
+    return {
+      profile,
+      uploadMedia,
+      updateProfile,
+      toggleSave,
+      getProfile,
+      imgPreview,loading
+
+    }
+  }
+}
 </script>
 
 <style scoped>
 
-.setting_profile_img_edit{
-  display: none;
-}
-.setting_profile_img:hover {
-  display: none;
-}
-.setting_profile_img:hover + .setting_profile_img_edit{
-  display: block;
-}
+
 </style>
