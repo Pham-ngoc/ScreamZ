@@ -55,9 +55,11 @@
 </template>
 
 <script setup>
-import { useOrbis } from '~/composables/useOrbis';
 
-const {connectSolanaWallet,connectEthereumWallet}=useOrbis()
+
+
+
+const {connectSolanaWallet,connectEthereumWallet}=useOrbisStore()
 const isShown=useState("crypto-modal")
 </script>
 

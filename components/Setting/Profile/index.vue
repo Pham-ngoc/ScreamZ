@@ -74,7 +74,7 @@ export default {
       }
     },
     async updateProfileMethod(){
-      console.log("asdsadas")
+
       this.loading=true
       if(this.imgPreview){
         this.profile.pfp=this.imgPreview
@@ -86,6 +86,7 @@ export default {
         this.loading=false
         this.imgPreview=''
         this.profile=this.getProfile?.details?.profile
+        window.location.reload()
       })
       this.toggleSave=false
       this.loading=false
@@ -93,7 +94,7 @@ export default {
     }
   },
   setup() {
-    const {uploadMedia,updateProfile,getProfile}=useOrbis()
+    const {uploadMedia,updateProfile,getProfile}=useOrbisStore()
     console.log(getProfile)
     const profile = reactive({
       ...getProfile?.details?.profile

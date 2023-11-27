@@ -1,7 +1,7 @@
 <template>
-  <div class="sidebar-icon group bg-transparent p-1">
+  <div class="sidebar-icon group bg-transparent p-1 ">
     <slot name="icon" />
-    <span class="sidebar-tooltip group-hover:scale-100 z-2147483646">
+    <span class="sidebar-tooltip group-hover:scale-100" style="z-index: 999">
       {{ text }}
     </span>
   </div>

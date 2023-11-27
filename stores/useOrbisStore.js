@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 
 
-import {User,useOrbis,Orbis} from "@orbisclub/components";
+import {Orbis} from "@orbisclub/components";
 const PROJECT_ID = "kjzl6cwe1jw148elxfksuebfhueby8soaosnsngq1bjew2r779z8kr7k3p4nw4i";
 
 export const useOrbisStore = defineStore('orbis',   () => {
@@ -14,8 +14,7 @@ export const useOrbisStore = defineStore('orbis',   () => {
         PINATA_GATEWAY: "beige-changing-squirrel-773.mypinata.cloud",
         PINATA_API_KEY: "160f16c829a96b1ca299",
         PINATA_SECRET_API_KEY: "88568421a28b362be7934cef000bfc4eb724b1d17ce3c18e08ee537ff2ccd087",
-        useLit: true,
-        node: "https://node2.orbis.club"
+
     });
 
     //Context Schema
@@ -192,5 +191,6 @@ export const useOrbisStore = defineStore('orbis',   () => {
         getProfile,
         getParentContext,
         getDid
+
     }
 })

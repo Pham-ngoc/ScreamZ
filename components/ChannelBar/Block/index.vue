@@ -1,5 +1,5 @@
 <template>
-  <div class='channel-block'>
+  <div class='channel-block z-0'>
     <div v-if="pending" class="flex items-center justify-center" role="status">
       <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
            viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -99,6 +99,7 @@
 
 
   </n-modal>
+  <ModalEditChannel :chanel="server"/>
 </template>
 <script>
 import {Modal} from 'flowbite';
@@ -112,14 +113,7 @@ export default {
   },
   mounted: function () {
 
-    const $modalElement = document.querySelector('#editChannel-modal');
-    const $closeModalElement = document.querySelectorAll('.close-editChanel');
-    this.modal = new Modal($modalElement);
-    $closeModalElement.forEach((element) => {
-      element.addEventListener('click', () => {
-        this.modal.hide();
-      });
-    });
+
   },
   setup(props) {
     const serverRef = ref(props.server)
@@ -138,6 +132,7 @@ export default {
       type: "did",
       authorizedUsers: []
     })
+    const showEditChanel= useState('ShowEditChanel',()=>false)
     const showPrivateModal=ref(false)
     const handleCreateChanel=async ()=>{
       if(!chanelRef.name){
@@ -186,7 +181,7 @@ export default {
         key: 'edit server',
         props: {
           onClick: () => {
-            modal.value.toggle()
+            showEditChanel.value=true
           }
         }
       },

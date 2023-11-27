@@ -4,7 +4,7 @@
     <div class="relative w-full max-w-md max-h-full">
 
       <!-- Modal content -->
-      <form @submit.prevent="createContext()" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+      <form @submit.prevent="createContextHandle()" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
         <!-- Modal header -->
         <div
             class="flex flex-col items-center text-center justify-between p-5 border-b rounded-t dark:border-gray-600 relative">
@@ -51,7 +51,7 @@
               </div>
 
               <img class="w-full h-full " v-if="context.pfp!==''" :src="context.pfp">
-              <input id="dropzone-file" type="file" class="hidden" @input="uploadMedia($event.target.files[0])"/>
+              <input id="dropzone-file" type="file" class="hidden" @input="uploadMediaHandle($event.target.files[0])"/>
             </label>
           </div>
 
@@ -104,15 +104,15 @@ const context = reactive({
   pfp: "",
 })
 const pending = ref(false);
-const orbis = useOrbisStore();
+const {createContext,uploadMedia} = useOrbisStore();
 const reset = () => {
   context.name = "";
   context.description = "";
   context.pfp = "";
 }
-const createContext = async () => {
+const createContextHandle = async () => {
   pending.value = true;
-  await orbis.createContext(context).then((res) => {
+  await createContext(context).then((res) => {
     pending.value = false;
     reset();
 
@@ -121,9 +121,9 @@ const createContext = async () => {
   })
 }
 
-const uploadMedia = async (file) => {
+const uploadMediaHandle = async (file) => {
   pending.value = true;
-  await orbis.uploadMedia(file).then((res) => {
+  await uploadMedia(file).then((res) => {
     pending.value = false;
     context.pfp = res?.result?.url
   })

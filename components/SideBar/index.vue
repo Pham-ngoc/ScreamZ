@@ -1,5 +1,5 @@
 <template>
-  <div class="h-full w-36 flex flex-col
+  <div class="h-full w-28 flex flex-col
                   bg-white dark:bg-gray-900 shadow-lg">
     <NuxtLink to="/">
       <SideBarIcon >

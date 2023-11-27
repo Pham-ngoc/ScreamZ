@@ -1,5 +1,7 @@
 <template>
-  <OrbisProvider :defaultOrbis="orbis"></OrbisProvider>
+  <OrbisProvider :defaultOrbis="defaultOrbis">
+    <slot/>
+  </OrbisProvider>
 </template>
 
 <script>
@@ -10,13 +12,12 @@ export default {
 
     OrbisProvider: applyPureReactInVue(OrbisProvider),
   },
-  props: {
-    orbis: {
-      type:Object,
-    },
-
-  },
-
+props:{
+  defaultOrbis:{
+    type:Object,
+    default:()=>{}
+  }
+},
   setup(props) {
 
 

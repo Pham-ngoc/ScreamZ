@@ -17,9 +17,8 @@
   </div>
 </template>
 <script setup>
-import { useOrbis } from '~/composables/useOrbis';
 
-const {logOut}=useOrbis()
+const {logOut}=useOrbisStore()
 defineProps({
   currentTab: {
     type: Object,

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-[455px] bg-[#D9D9D9] h-full sticky right-0 top-0">
+  <div class="w-[405px] bg-[#D9D9D9] h-full sticky right-0 top-0">
     <user-off-canvas-header-top/>
     <user-off-canvas-content/>
   </div>
