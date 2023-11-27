@@ -18,7 +18,7 @@
   </div>
 </template>
 <script setup>
-import {SettingProfile, SettingAppearance} from "#components";
+import {SettingProfile, SettingAppearance, SettingNFT, SettingLanguage} from "#components";
 const isShowModal=useState("setting-modal")
 const tabs=ref([
   {
@@ -28,6 +28,14 @@ const tabs=ref([
   {
     name:'Appearance',
     component:SettingAppearance
+  },
+  {
+    name:'NFT',
+    component:SettingNFT
+  },
+  {
+    name:'Language',
+    component:SettingLanguage
   }
 ])
 const currentTab=ref({
