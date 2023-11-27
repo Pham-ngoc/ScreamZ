@@ -2,6 +2,7 @@
   <div id="startCreateChanelModel" tabindex="1"
        class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative w-full max-w-md max-h-full">
+
       <!-- Modal content -->
       <form @submit.prevent="createContext()" class="relative bg-white rounded-lg shadow dark:bg-gray-700">
         <!-- Modal header -->
@@ -15,8 +16,9 @@
             Create your own channel and start chatting.
           </p>
           <button type="button"
+                  @click="reset()"
                   class="absolute text-gray-400 right-1 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                  data-modal-hide="startCreateChanelModel">
+                  data-modal-targer="startCreateChanelModel" data-modal-hide="startCreateChanelModel">
             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
               <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                     d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
@@ -24,30 +26,31 @@
             <span class="sr-only">Close modal</span>
           </button>
           <button
+              @click="reset()"
               class="absolute text-gray-400 left-1 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
               data-modal-hide="startCreateChanelModel" type="button" data-modal-toggle="createChanelModal">
             <IconChevronLeft/>
           </button>
         </div>
         <!-- Modal body -->
-        <div class="p-4 space-y-6">
+        <div class="p-4 space-y-6 relative">
 
           <div class="flex items-center justify-center w-full">
             <label for="dropzone-file"
-                   class="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
-              <div class="flex flex-col items-center justify-center pt-5 pb-6">
-                <template  v-if="context.pfp ===''">
-                  <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
-                       xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
-                  </svg>
-                  <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
-                      class="font-semibold">Click to upload</span> or drag and drop</p>
-                  <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
-                </template>
-                <img v-else :src="context.pfp">
+                   class="w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600">
+              <div v-if="context.pfp ===''" class="flex flex-col items-center justify-center pt-5 pb-6">
+                <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                     xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                </svg>
+                <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span
+                    class="font-semibold">Click to upload</span> or drag and drop</p>
+                <p class="text-xs text-gray-500 dark:text-gray-400">SVG, PNG, JPG or GIF (MAX. 800x400px)</p>
+
               </div>
+
+              <img class="w-full h-full " v-if="context.pfp!==''" :src="context.pfp">
               <input id="dropzone-file" type="file" class="hidden" @input="uploadMedia($event.target.files[0])"/>
             </label>
           </div>
@@ -64,22 +67,29 @@
           </div>
           <div class="flex flex-col">
             <label for="channel-display-name" class="block text-sm font-medium text-gray-900 dark:text-gray-200">
-              Display name
+              Description
             </label>
             <div class="mt-1">
-              <input type="text" name="channel-name" id="channel-display-name" v-model="context.displayName"
-                     class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                     placeholder="Channel name">
+              <textarea name="channel-name" id="channel-display-name" v-model="context.description "
+                        class="block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                        placeholder="Channel name"></textarea>
             </div>
           </div>
         </div>
         <!-- Modal footer -->
         <div class="flex flex-col items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-          <button data-modal-hide="createChanelModal" type="submit"
+          <button v-if="!pending" :disabled="context.name===''" data-modal-hide="startCreateChanelModel" type="submit"
 
                   class="ml-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
             Create
           </button>
+          <button v-else type="button"
+                  disabled
+                  class="ml-auto text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <svg aria-hidden="true" class="w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/><path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/></svg>
+            <span class="sr-only">Loading...</span>
+          </button>
+
         </div>
       </form>
     </div>
@@ -87,24 +97,38 @@
 </template>
 
 <script setup>
-import { useOrbis } from '~/composables/useOrbis';
-
-const context=reactive({
-  name:"",
-  displayName:"",
-  pfp:"",
+import { Modal } from 'flowbite';
+const context = reactive({
+  name: "",
+  description: "",
+  pfp: "",
 })
-const orbis=useOrbis();
-const createContext=async ()=>{
-  await orbis.createContext(context)
+const pending = ref(false);
+const orbis = useOrbisStore();
+const reset = () => {
+  context.name = "";
+  context.description = "";
+  context.pfp = "";
 }
-const uploadMedia=async (file)=>{
+const createContext = async () => {
+  pending.value = true;
+  await orbis.createContext(context).then((res) => {
+    pending.value = false;
+    reset();
 
-  await orbis.uploadMedia(file).then((res)=>{
-    context.pfp=res?.result?.url
-    console.log(res?.result?.url)
+
+
   })
 }
+
+const uploadMedia = async (file) => {
+  pending.value = true;
+  await orbis.uploadMedia(file).then((res) => {
+    pending.value = false;
+    context.pfp = res?.result?.url
+  })
+}
+
 </script>
 
 <style scoped>
