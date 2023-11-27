@@ -1,59 +1,30 @@
 <template >
-    <div class='content-container relative overflow-y-auto'>
-      <TopNavigation />
+    <div class='relative w-[1250px]'>
+<!--      <TopNavigation />-->
+
       <div class='content-list'>
-        <ContentContainerPost
-          name='Ada'
+        <template v-if="param!==null &&param.type!=='server'">
+          <ContentContainerChat v-if="param.type==='chanel'&& param.id" :context="param.id"/>
 
-          timestamp='one week ago'
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit."
-        />
-        <ContentContainerPost name='Leon'  text="Lorem ipsum dolor. " />
-        <ContentContainerPost name='Jill'  text="Lorem." />
-        <ContentContainerPost
-          name='Ellie'
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. "
-        />
-        <ContentContainerPost
-          name='Chris'
 
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit.
-
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit."
-        />
-        <ContentContainerPost
-          name='Claire'
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit."
-        />
-        <ContentContainerPost
-          name='Albert'
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. ☺️"
-        />
-        <ContentContainerPost
-          name='Rebecca'
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit."
-        />
-        <ContentContainerPost
-          name='H.U.N.K'
-          text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem ipsum dolor sit
-          amet consectetur adipisicing elit. Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Lorem ipsum dolor sit amet consectetur adipisicing elit. Lorem
-          ipsum dolor sit amet consectetur adipisicing elit."
-        />
-        <ContentContainerBottomBar/>
+        </template>
+        <template v-if="param===null">
+          <div class="absolute w-full h-full flex items-center justify-center">
+            <div class="flex flex-col items-center justify-center">
+              <h1 class="text-3xl font-bold">Welcome to Greamz</h1>
+              <p class="text-gray-500">Click on a server to explore!</p>
+            </div>
+          </div>
+        </template>
       </div>
+
     </div>
 </template>
 <script setup>
-
+defineProps({
+  param: {
+    type: Object,
+    default: null,
+  },
+})
 </script>
