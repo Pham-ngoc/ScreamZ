@@ -12,8 +12,6 @@
   
 </template>
 <script setup>
-
-
 const darkMode = useDarkMode()
 darkMode.setThemeClass()
 

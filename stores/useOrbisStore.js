@@ -16,7 +16,7 @@ export const useOrbisStore = defineStore('orbis',   () => {
         PINATA_SECRET_API_KEY: "88568421a28b362be7934cef000bfc4eb724b1d17ce3c18e08ee537ff2ccd087",
 
     });
-
+    const notifications = ref([]);
     //Context Schema
     const init = async () => {
         const isConnected= await orbis.isConnected()
@@ -38,6 +38,8 @@ export const useOrbisStore = defineStore('orbis',   () => {
                     console.log(data)
                 }
             }
+
+
             await getContexts()
 
         }
@@ -57,6 +59,30 @@ export const useOrbisStore = defineStore('orbis',   () => {
     const getProfile = computed(() => {
         return profile.value;
     })
+    const setNotifications = async (id) => {
+        const currentTimestamp = Date.now()
+
+        /** Convert the timestamp to seconds as Javascript uses miliseconds */
+        const unixTimestamp = Math.floor(currentTimestamp / 1000)
+
+        const res = await orbis.setNotificationsReadTime({
+            type: "messages",
+            timestamp: 1000,
+            context: id
+        });
+        return unixTimestamp;
+
+    }
+    const getNotifications = async (unixTimestamp,serverId) => {
+        const { data, error } = await orbis.getNotifications({
+            type: "messages"
+        });
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(data);
+        }
+    }
     const getContexts = async () => {
         const {data} =await orbis.getContexts(PROJECT_ID);
         contexts.value = data;
@@ -85,7 +111,14 @@ export const useOrbisStore = defineStore('orbis',   () => {
     }
     const deleteContext = async (server) => {
         console.log(server)
-        let res = await orbis.updateContext(server.stream_id, {is_deleted: true,project_id:server.project_id,name:''});
+        let res = await orbis.updateContext(server.stream_id, {is_deleted: true,name:'',project_id:PROJECT_ID});
+        console.log(res)
+        // await init();
+    }
+    const deleteContextWithId = async (server) => {
+        console.log(server)
+        let res = await orbis.updateContext(server, {is_deleted: true,project_id:PROJECT_ID,name:''});
+        console.log(res)
         await init();
     }
     const getContext= (context_id)=>{
@@ -98,6 +131,15 @@ export const useOrbisStore = defineStore('orbis',   () => {
         if(error){
             return null;
         }
+        const currentTimestamp = Date.now()
+
+        /** Convert the timestamp to seconds as Javascript uses miliseconds */
+        const unixTimestamp = Math.floor(currentTimestamp / 1000)
+        const res = orbis.setNotificationsReadTime({
+            type: "social",
+            timestamp: unixTimestamp,
+            context: data.context
+        });
         return data.context;
     }
     //Child context Schema
@@ -190,7 +232,9 @@ export const useOrbisStore = defineStore('orbis',   () => {
         updateProfile,
         getProfile,
         getParentContext,
-        getDid
+        getDid,
+        deleteContextWithId,getNotifications,setNotifications
+
 
     }
 })

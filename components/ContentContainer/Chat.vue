@@ -1,21 +1,20 @@
 <template>
 <div class="w-full h-full">
   <ChatOrbis  :theme="theme" :context="context"/>
+
 </div>
 </template>
 
 <script>
 import {applyReactInVue, applyPureReactInVue} from 'veaury'
-// This is a React component
-// import BasicReactComponent from './react_app/Basic.jsx'
-import { Chat, } from "@orbisclub/components";
+import { Chat } from "@orbisclub/components";
 import "@orbisclub/components/dist/index.modern.css";
-import {ref} from 'vue'
 
 export default {
   components: {
     // Use HOC 'applyReactInVue' or 'applyPureReactInVue'
     ChatOrbis: applyReactInVue(Chat),
+
 
   },
   props: {
@@ -29,9 +28,11 @@ export default {
     }
   },
 
-  setup() {
+  setup(props) {
+
+
     return {
-      foo: ref('Hello!')
+
     }
   }
 }

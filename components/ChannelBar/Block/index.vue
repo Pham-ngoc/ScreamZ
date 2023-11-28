@@ -164,9 +164,9 @@ export default {
           await deleteContext(serverRef.value).then(() => {
             pending.value = false
             message.success('Delete success')
-            setTimeout(() => {
-              window.location.href = '/'
-            }, 1000)
+            // setTimeout(() => {
+            //   window.location.href = '/'
+            // }, 1000)
           })
         },
         onNegativeClick: () => {
